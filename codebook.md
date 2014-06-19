@@ -1,4 +1,4 @@
-# Getting and Cleaning Data Peer Assessment Codebook
+# Getting and Cleaning Data Project
 
 ## Source Data
 
