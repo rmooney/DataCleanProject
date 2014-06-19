@@ -1,8 +1,8 @@
 # run_analysis.R
 #
-# This script will load the data from the
-# UCI Human Activity Recognition Using Smartphones Data Set
-# and create a "tidy data set" to spec
+# This script will load the data from the UCI HAR Dataset.
+# It will consolidate data and the use available features & activity labels
+# to create a file called "tidydata.txt"
 #
 # Source data is found here:
 # https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
