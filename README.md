@@ -1,31 +1,18 @@
-DataCleanProject
-================
+# Data Cleaning Project
 
-This is to house the Course Project R code for the Data Cleansing course.
+This script cleans activity data provided here:
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
-## Starting Assumptions
-The source files must be unzipped in the working directory.
-The original set unpacks to a folder called "UCI HAR Dataset".  The activity files should be in
-their respective "test" and "train" subfolders here.
+This script reads x, y, and subject data files in both train and test directories, extracts the mean and standard deviation variables and combines them to a single dataframe.
 
-The original data contained:
-Six activities
-30 subjects
+The datadir variable points to the directory containing the data and can be tuned to other directories as needed.  Initially, datadir points to the "UCI HAR Dataset" directory, which is the default when the data is unzipped.
 
-For each record in the dataset it is provided: 
-- Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration. 
-- Triaxial Angular velocity from the gyroscope. 
-- A 561-feature vector with time and frequency domain variables. 
-- Its activity label. 
-- An identifier of the subject who carried out the experiment.
+The features list was extracted from features.txt.  Because we are only interested in the observations directly from the signals, only fields that explicitly are called mean() and std() were used.  This omitted other means (such as gravityMean) that were extrapolated from the observations.  Please see the features_info.txt file in the data set for further clarification.
 
-## Program Notes
+The features list was also sanitized using the R function make.names() in order to ensure column names could be usable by R without issue.
 
-Pseudo code:
+Activity_labels.txt was used to label the activities descriptively in the second column.
 
-- read in the data
-- identify if it's test or train - do we need this value for any reason?
---if so, add it to the data set
-- create data frame that will be
-Write output data set... CSV?
-With descriptive names
+The final merged dataframe that is created contains SubjectID, Activity, and the averages for all extracted observations by subject and activity combination.
+
+This dataframe is written to "tidydata.txt" in the working directory.
